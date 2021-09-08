@@ -13,7 +13,7 @@ pipeline {
 
               stage('kubectl') {
                 steps{
-                    sh 'docker build -t ${IMAGEREPO}/kubectl /kubectl/.'
+                    sh 'docker build -t ${IMAGEREPO}/kubectl kubectl/.'
                     sh 'docker push ${IMAGEREPO}/kubectl'
                 }
 
