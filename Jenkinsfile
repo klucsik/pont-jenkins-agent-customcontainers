@@ -12,8 +12,11 @@ pipeline {
             parallel {
 
               stage('kubectl') {
-                sh 'docker build -t ${IMAGEREPO}/kubectl /kubectl/.'
-                sh 'docker push ${IMAGEREPO}/kubectl'
+                steps{
+                    sh 'docker build -t ${IMAGEREPO}/kubectl /kubectl/.'
+                    sh 'docker push ${IMAGEREPO}/kubectl'
+                }
+
               }
 
             }
@@ -23,8 +26,12 @@ pipeline {
             parallel {
 
               stage('test kubectl') {
-                sh 'docker iamge rm ${IMAGEREPO}/kubectl'
-                sh 'docker run ${IMAGEREPO}/kubectl'
+                steps{
+                    sh 'docker iamge rm ${IMAGEREPO}/kubectl'
+                    sh 'docker run ${IMAGEREPO}/kubectl'
+                }
+
+
               }
 
             }
