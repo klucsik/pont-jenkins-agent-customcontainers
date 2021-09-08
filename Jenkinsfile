@@ -13,7 +13,7 @@ pipeline {
 
               stage('kubectl') {
                 steps{
-                    sh 'docker build -t ${IMAGEREPO}/kubectl   --build-arg http_proxy=http://10.0.7.94:8080 --build-arg https_proxy=http://10.0.7.94:8080 kubectl/.'
+                    sh 'docker build -t ${IMAGEREPO}/kubectl   --network=host kubectl/.'
                     sh 'docker push ${IMAGEREPO}/kubectl'
                 }
 
