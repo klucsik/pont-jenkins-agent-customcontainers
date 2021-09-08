@@ -27,7 +27,7 @@ pipeline {
 
               stage('test kubectl') {
                 steps{
-                    sh 'docker iamge rm ${IMAGEREPO}/kubectl'
+                    sh 'docker image rm ${IMAGEREPO}/kubectl'
                     sh 'docker run ${IMAGEREPO}/kubectl'
                 }
 
