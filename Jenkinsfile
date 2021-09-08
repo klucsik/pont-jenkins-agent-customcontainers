@@ -38,7 +38,7 @@ pipeline {
       }
   }
 
-  envrionment{
+  environment {
     IMAGEREPO = 'k8stools.dev.pnt.hu:8443'
   }
 
