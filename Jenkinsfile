@@ -23,7 +23,7 @@ pipeline {
         parallel {
 
           stage('test kubectl') {
-            sh 'docker iamge rm ${IMAGEREPO}/kubectl'
+            sh 'docker image rm ${IMAGEREPO}/kubectl'
             sh 'docker run ${IMAGEREPO}/kubectl'
           }
 
