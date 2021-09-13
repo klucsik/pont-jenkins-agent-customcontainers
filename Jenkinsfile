@@ -38,13 +38,6 @@ pipeline {
                 }
               }
 
-              stage('test jenkins controller') {
-                steps{
-                    sh 'docker image rm ${IMAGEREPO}/jenkins-controller'
-                    sh 'docker run ${IMAGEREPO}/jenkins-controller'
-                }
-              }
-
             }
       }
   }
