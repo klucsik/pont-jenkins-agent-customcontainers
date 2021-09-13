@@ -16,7 +16,13 @@ pipeline {
                     sh 'docker build -t ${IMAGEREPO}/kubectl   --network=host kubectl/.'
                     sh 'docker push ${IMAGEREPO}/kubectl'
                 }
+              }
 
+              stage('jenkins-controller') {
+                steps{
+                    sh 'docker build -t ${IMAGEREPO}/jenkins-in-cluster   --network=host jenkins-controller/.'
+                    sh 'docker push ${IMAGEREPO}/jenkins-controller'
+                }
               }
 
             }
@@ -30,8 +36,13 @@ pipeline {
                     sh 'docker image rm ${IMAGEREPO}/kubectl'
                     sh 'docker run ${IMAGEREPO}/kubectl'
                 }
+              }
 
-
+              stage('test jenkins controller') {
+                steps{
+                    sh 'docker image rm ${IMAGEREPO}/jenkins-controller'
+                    sh 'docker run ${IMAGEREPO}/jenkins-controller'
+                }
               }
 
             }
