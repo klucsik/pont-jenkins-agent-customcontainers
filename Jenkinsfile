@@ -20,7 +20,7 @@ pipeline {
 
               stage('jenkins-controller') {
                 steps{
-                    sh 'docker build -t ${IMAGEREPO}/jenkins-in-cluster   --network=host jenkins-controller/.'
+                    sh 'docker build -t ${IMAGEREPO}/jenkins-controller   --network=host jenkins-controller/.'
                     sh 'docker push ${IMAGEREPO}/jenkins-controller'
                 }
               }
