@@ -1,3 +1,4 @@
+#Get these from  https://gitlab.pontsystems.eu/klucsikkrisztian/jenkins-agent-templates
 apiVersion: v1
 kind: Pod
 metadata:
