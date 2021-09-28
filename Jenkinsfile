@@ -45,7 +45,7 @@ pipeline {
               }
               stage('test buildx') {
                 steps{
-                    sh 'docker image rm ${IMAGEREPO}/kubectl'
+                    sh 'docker image rm ${IMAGEREPO}/buildx'
                     sh 'docker run ${IMAGEREPO}/buildx'
                 }
               }
