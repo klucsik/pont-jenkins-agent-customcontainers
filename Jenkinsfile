@@ -43,7 +43,7 @@ pipeline {
   }
 
   environment {
-    IMAGEREPO = 'registry.k8s.dev.pnt.hu'
+    IMAGEREPO = 'registry.klucsik.fun'
   }
 
 }
