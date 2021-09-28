@@ -17,6 +17,12 @@ pipeline {
                     sh 'docker push ${IMAGEREPO}/kubectl'
                 }
               }
+              stage('buildx') {
+                steps{
+                    sh 'docker build -t ${IMAGEREPO}/buildx   --network=host buildx/.'
+                    sh 'docker push ${IMAGEREPO}/buildx'
+                }
+              }
 
               stage('jenkins-controller') {
                 steps{
@@ -37,7 +43,12 @@ pipeline {
                     sh 'docker run ${IMAGEREPO}/kubectl'
                 }
               }
-
+              stage('test buildx') {
+                steps{
+                    sh 'docker image rm ${IMAGEREPO}/kubectl'
+                    sh 'docker run ${IMAGEREPO}/buildx'
+                }
+              }
             }
       }
   }
