@@ -5,6 +5,8 @@ metadata:
   name: test
 
 spec:
+  nodeSelector:
+    kubernetes.io/hostname: klucsik-bazooka
   containers:  # list of containers that you want present for your build, you can define a default container in the Jenkinsfile
     - name: docker
       image: docker:20.10.8
